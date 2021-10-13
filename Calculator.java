@@ -1,7 +1,10 @@
 public class Calculator{
 
 	public static void main(String[] args){
-		weekday("monday");	
+		weekday("monday");
+		String s = "tuesday";
+		weekday(args[0]);	
+		weekday(args[1]);
 	}
 	
 	public int add(int a , int b){
@@ -29,5 +32,7 @@ public class Calculator{
 				break;
 			default: 
 		}
+		
+
 	}
 }
