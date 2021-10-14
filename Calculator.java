@@ -5,6 +5,7 @@ public class Calculator{
 		String s = "tuesday";
 		weekday(args[0]);	
 		weekday(args[1]);
+		weekday(args[2]);
 	}
 	
 	public int add(int a , int b){
