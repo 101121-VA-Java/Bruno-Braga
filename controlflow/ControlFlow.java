@@ -95,7 +95,7 @@ public class ControlFlow {
         int arraySize = intArr.length;
         int[] newArray = new int[arraySize];
         // logic
-        for (int i = 0; i < intArr.length; i++) {
+        for (int i = 0; i < arraySize; i++) {
             newArray[i] = intArr[i];
             if (intArr[i] % 3 == 0) {
                 newArray[i] = intArr[i] * 2;
@@ -110,11 +110,10 @@ public class ControlFlow {
      * most.
      */
     public static int[] orderArr(int[] intArr) {
-
-        int n = intArr.length;
+        int arraySize = intArr.length;
         int temp = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = 1; j < (n - i); j++) {
+        for (int i = 0; i < arraySize; i++) {
+            for (int j = 1; j < (arraySize - i); j++) {
                 if (intArr[j - 1] > intArr[j]) {
                     // swap elements
                     temp = intArr[j - 1];
