@@ -109,10 +109,9 @@ public class ControlFlow {
      * most.
      */
     public static int[] orderArr(int[] intArr) {
-        int arraySize = intArr.length;
         int temp = 0;
-        for (int i = 0; i < arraySize; i++) {
-            for (int j = 1; j < (arraySize - i); j++) {
+        for (int i = 0; i < intArr.length; i++) {
+            for (int j = 1; j < (intArr.length - i); j++) {
                 if (intArr[j - 1] > intArr[j]) {
                     // swap elements
                     temp = intArr[j - 1];
