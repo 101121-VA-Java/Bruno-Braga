@@ -92,10 +92,9 @@ public class ControlFlow {
      * been multiplied by 2 if they are a multiple of 3.
      */
     public static int[] transformIntArr(int[] intArr) {
-        int arraySize = intArr.length;
-        int[] newArray = new int[arraySize];
+        int[] newArray = new int[intArr.length];
         // logic
-        for (int i = 0; i < arraySize; i++) {
+        for (int i = 0; i < intArr.length; i++) {
             newArray[i] = intArr[i];
             if (intArr[i] % 3 == 0) {
                 newArray[i] = intArr[i] * 2;
