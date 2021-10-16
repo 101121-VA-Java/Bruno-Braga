@@ -78,13 +78,7 @@ public class ControlFlow {
      * or false if it's odd.
      */
     public static boolean isEven(String s) {
-        int counter = 0;
-        char[] ch = new char[s.length()];
-        for (int i = 0; i < ch.length; i++) {
-            counter = counter + 1;
-        }
-        boolean result = counter % 2 == 0 ? true : false;
-        return result;
+        return s.length() % 2 == 0;
     }
 
     /*
