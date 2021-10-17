@@ -24,6 +24,7 @@ public class ControlFlow {
         for (int i : transformIntArr(intArr)) {
             System.out.print(i + " ");
         }
+        System.out.println(" ");
         System.out.println("Expected value:");
         System.out.println("1 6 5 12");
         System.out.println("Actual:");
@@ -87,14 +88,12 @@ public class ControlFlow {
      */
     public static int[] transformIntArr(int[] intArr) {
         int[] newArray = new int[intArr.length];
-        // logic
         for (int i = 0; i < intArr.length; i++) {
             newArray[i] = intArr[i];
             if (intArr[i] % 3 == 0) {
                 newArray[i] = intArr[i] * 2;
             }
         }
-
         return newArray;
     }
 
@@ -103,14 +102,12 @@ public class ControlFlow {
      * most.
      */
     public static int[] orderArr(int[] intArr) {
-
-        for (int i = 0; i < intArr.length; i++) {
-            for (int j = 1; j < (intArr.length - i); j++) {
-                if (intArr[j - 1] > intArr[j]) {
-                    // swap elements
-                    int temp = intArr[j - 1];
-                    intArr[j - 1] = intArr[j];
-                    intArr[j] = temp;
+        for (int i = intArr.length; i > 0; i--) {
+            for (int j = 0; j < i - 1; j++) {
+                if (intArr[j] > intArr[j + 1]) {
+                    int temp = intArr[j];
+                    intArr[j] = intArr[j + 1];
+                    intArr[j + 1] = temp;
                 }
             }
         }
