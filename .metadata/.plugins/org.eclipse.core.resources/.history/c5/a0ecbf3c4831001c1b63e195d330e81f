@@ -1,0 +1,44 @@
+package task;
+
+import java.time.LocalDate;
+import java.util.Scanner;
+
+import com.revature.Task.*;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner entry = new Scanner(System.in);
+		entry;
+		LocalDate dueDate = new LocalDate(entry);
+	}
+
+	
+	
+	String dInStr = "2011-09-01";  
+    LocalDate d1 = LocalDate.parse(dInStr);  
+    System.out.println("String to LocalDate : " + d1);  
+    // Example 2  
+    String dInStr2 = "2015-11-20";  
+    LocalDate d2 = LocalDate.parse(dInStr2);  
+    System.out.println("String to LocalDate : " + d2);  
+    
+    
+    public void loginScreen() {
+		String uname = "admin";
+		String pass = "pass";
+		
+		System.out.println("Please enter the Taks' name:");
+		String username = .nextLine();
+		System.out.println("Please enter your password:");
+		String password = sc.nextLine();
+		if(uname.equals(username) && pass.equals(password)) {
+			System.out.println("You're logged in.");
+		} else {
+			System.out.println("Not quite.");
+		}
+    }
+	
+}

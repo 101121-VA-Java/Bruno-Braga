@@ -1,0 +1,33 @@
+package com.revature.Task;
+
+import java.util.Scanner;
+import java.time.LocalDate;
+
+public class Task {
+	/*
+	 * Create Task.class 
+	 * 	- String name
+	 * 	- LocalDate dueDate
+	 * 	- encapsulate the class
+	 *  - create setter and getter
+	 *  - manually write at least one of them
+	 *  - give a toString() and a .equals() method
+	 */
+//	LocalDate dueDate = new LocalDate();
+	public String taskName = "do Laundry";
+	
+	
+	String dueDate = "2011-09-01";  
+    LocalDate d1 = LocalDate.parse(dueDate);  
+    System.out.println("String to LocalDate : " + d1);  
+    // Example 2  
+    String dueDate = "2015-11-20";  
+    LocalDate d2 = LocalDate.parse(dueDate);  
+    System.out.println("String to LocalDate : " + d2); 
+	
+
+	
+	
+	
+	
+}

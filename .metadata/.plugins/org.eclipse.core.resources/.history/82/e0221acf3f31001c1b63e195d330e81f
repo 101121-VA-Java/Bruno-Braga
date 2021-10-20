@@ -1,0 +1,21 @@
+package com.revature.Task;
+
+public class Task {
+	/*
+	 * Create Task.class 
+	 * 	- String name
+	 * 	- LocalDate dueDate
+	 * 	- encapsulate the class
+	 *  - create setter and getter
+	 *  - manually write at least one of them
+	 *  - give a toString() and a .equals() method
+	 */
+	Scanner taskEntry = new Scanner(System.in);
+	
+	
+	System.out.println("Enter the name of your task in or DO-TO list: ");
+	String entry = taskEntry.nextLine();
+	
+	
+	
+}
