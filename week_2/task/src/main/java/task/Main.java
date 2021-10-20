@@ -1,6 +1,6 @@
 package task;
 
-public class Task {
+public class Main {
 
 	public static void main(String[] args) {
 		
