@@ -1,0 +1,51 @@
+public static void main(String[] args) {	// creates the main method that receives parameters type String Array named args. Also has the access modifier public which means that can be accessed at any place in the program.  Static keyword llows main to be called without creating an object of the class in which the main method is defined.
+	String[] foodTypes = getFoodTypes(); // Calling getFoodTypes() static method is stored variable named foodTypes type String array.
+	String myType = foodTypes[2]; // Access the 3 element of the array which is index [2] of foodTypes array and store it on a variable named myType type string.
+	String[] foodsOfMyType = getFoodsByType(myType); // Pass into the parameters of the getFoodsByType method the variable myType that stored the 3 element of the array foodTypes. The foodOfMyType array stores into it an String array values.
+	
+	for (String food : foodsOfMyType) { // creates a conditional-flow statement "for loop" that has a variable call food type String inside the conditional boolean and iterates through the array foodOfMyTypeString.
+		System.out.println(food); // prints the content of the food form the array foodOfType elements array which is the case "dinner" which is the 3 element of the array foodTypes "curry" "stir fry", "burger".
+	}
+}
+
+public static String[] getFoodTypes() { // Declares a new static method that return a String Array value, is public and is not passing any parameters through its declaration.
+	String[] foodTypes = {"breakfast","lunch","dinner","dessert","snack"}; // Create a String Array named foodTypes with 5 elements.
+	return foodTypes;	// returns the string array above
+}
+
+public static String[] getFoodsByType(String type) { // Declare a method named getFoodsByType() that accepts a String type parameter named type.
+	String[] foods = new String[3]; // creates a new object type string array that has the length 3 elements and stores into the foods variable type string array to be returned. 
+
+	switch(type) { // 
+	case "breakfast":
+		foods[0] = "pancakes";
+		foods[1] = "cereal";
+		foods[2] = "omelette";
+		break;
+	case "lunch":
+		foods[0] = "sandwich";
+		foods[1] = "salad";
+		foods[2] = "soup";
+		break;
+	case "dinner":
+		foods[0] = "curry";
+		foods[1] = "stir fry";
+		foods[2] = "burger";
+		break;
+	case "dessert":
+		foods[0] = "cake";
+		foods[1] = "ice cream";
+		foods[2] = "candy";
+		break;
+	case "snack":
+		foods[0] = "chips";
+		foods[1] = "apple";
+		foods[2] = "samosa";
+		break;
+	default:
+		// add your own
+		break;
+	}
+
+	return foods;
+}
