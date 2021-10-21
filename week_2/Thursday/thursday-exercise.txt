@@ -1,4 +1,4 @@
-public static void main(String[] args) {	// creates the main method that receives parameters type String Array named args. Also has the access modifier public which means that can be accessed at any place in the program.  Static keyword llows main to be called without creating an object of the class in which the main method is defined.
+public static void main(String[] args) {	// Creates the main method that receives parameters type String Array named args. Also has the access modifier public which means that can be accessed at any place in the program.  Static keyword llows main to be called without creating an object of the class in which the main method is defined.
 	String[] foodTypes = getFoodTypes(); // Calling getFoodTypes() static method is stored variable named foodTypes type String array.
 	String myType = foodTypes[2]; // Access the 3 element of the array which is index [2] of foodTypes array and store it on a variable named myType type string.
 	String[] foodsOfMyType = getFoodsByType(myType); // Pass into the parameters of the getFoodsByType method the variable myType that stored the 3 element of the array foodTypes. The foodOfMyType array stores into it an String array values.
@@ -16,7 +16,7 @@ public static String[] getFoodTypes() { // Declares a new static method that ret
 public static String[] getFoodsByType(String type) { // Declare a method named getFoodsByType() that accepts a String type parameter named type.
 	String[] foods = new String[3]; // creates a new object type string array that has the length 3 elements and stores into the foods variable type string array to be returned. 
 
-	switch(type) { // 
+	switch(type) { // receives the "dinner" string form the type parameter of the method getFoodsByType.
 	case "breakfast":
 		foods[0] = "pancakes";
 		foods[1] = "cereal";
@@ -27,7 +27,7 @@ public static String[] getFoodsByType(String type) { // Declare a method named g
 		foods[1] = "salad";
 		foods[2] = "soup";
 		break;
-	case "dinner":
+	case "dinner": // all foods elements fills the foods string array of this method that has a length of 3 elements.
 		foods[0] = "curry";
 		foods[1] = "stir fry";
 		foods[2] = "burger";
@@ -47,5 +47,5 @@ public static String[] getFoodsByType(String type) { // Declare a method named g
 		break;
 	}
 
-	return foods;
+	return foods; // return the String array.
 }
