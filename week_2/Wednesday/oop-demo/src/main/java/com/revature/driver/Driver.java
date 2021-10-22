@@ -28,7 +28,7 @@ public class Driver {
 				oop.doPolymorphism();
 				break;
 			default:
-				System.out.println("Option not available.");
+//				System.out.println("Option not available.");
 		}
 		sc.close();
 	}

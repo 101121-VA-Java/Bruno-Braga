@@ -1,11 +1,47 @@
-package com.revature.models;
+package com.revature.models;	/*  Package in Java is a mechanism to encapsulate a group of
+								 *	classes, sub packages and interfaces. 								*
+								 *	Packages are used for: Preventing naming conflicts.
+								 *
+								 */
 
-import java.time.LocalDate;
 
-public class Task {
+import java.time.LocalDate;	/*  import is a Java keyword. It declares a Java class to use
+							 *	in the code below the import statement. Once a Java class 
+							 *	is declared, then the class name can be used in the code 
+							 *	without specifying the package the class belongs to. 
+							 *  Use the '*' character to declare all the classes belonging to the package.
+							 *
+							 */
+
+
+public class Task {   		/*	Class declaration name and give to it public as access modifier
+							*
+							*	public: The public access modifier is specified using the keyword public.
+							*	The public access modifier has the widest scope among all other access modifiers.
+							*	Classes, methods, or data members that are declared as public are accessible
+							*	from everywhere in the program. 
+							*/
 	
-	private String name;
-	private LocalDate dueDate;
+	
+	
+	private String name;   /*	It creates a variable named name type String and in this context
+							*	is refereed as an field of the class.
+							*
+							*	Private: The private access modifier is specified using the keyword private. 
+							*	The methods or data members declared as private are accessible only within
+							*	the class in which they are declared. Any other class of the same package will
+							*	not be able to access these members.
+							*
+							*/
+	
+	
+	
+	private LocalDate dueDate;	/*	It creates a private variable(field) called dueDate
+								 *	
+								 *
+								 *
+								 *
+								 */
 	
 	public Task() {
 		super();
