@@ -37,7 +37,7 @@ public class Task {   		/*	Class declaration name and give to it public as acces
 	
 	
 	private LocalDate dueDate;	/*	It creates a private variable(field) called dueDate
-								 *	
+								 *	as field of this class Task
 								 *
 								 *
 								 *
