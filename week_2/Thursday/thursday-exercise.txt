@@ -1,10 +1,10 @@
-public static void main(String[] args) {	// Creates the main method that receives parameters type String Array named args. Also has the access modifier public which means that can be accessed at any place in the program.  Static keyword llows main to be called without creating an object of the class in which the main method is defined.
+public static void main(String[] args) {	// Creates the main method that receives parameters type String Array named args. Also has the access modifier public which means that can be accessed at any place in the program.  Static keyword allows main to be called without creating an object of the class in which the main method is defined. It is the try point of the program.
 	String[] foodTypes = getFoodTypes(); // Calling getFoodTypes() static method is stored variable named foodTypes type String array.
 	String myType = foodTypes[2]; // Access the 3 element of the array which is index [2] of foodTypes array and store it on a variable named myType type string.
 	String[] foodsOfMyType = getFoodsByType(myType); // Pass into the parameters of the getFoodsByType method the variable myType that stored the 3 element of the array foodTypes. The foodOfMyType array stores into it an String array values.
 	
-	for (String food : foodsOfMyType) { // creates a conditional-flow statement "for loop" that has a variable call food type String inside the conditional boolean and iterates through the array foodOfMyTypeString.
-		System.out.println(food); // prints the content of the food form the array foodOfType elements array which is the case "dinner" which is the 3 element of the array foodTypes "curry" "stir fry", "burger".
+	for (String food : foodsOfMyType) { // creates a conditional-flow statement enhanced for loop that has a variable call food type String inside the conditional boolean and iterates through the array foodOfMyTypeString.
+		System.out.println(food); // prints the content of the food form the array foodsOfType elements array which is the case "dinner" which is the 3 elements of the array foodTypes as string "curry" string "stir fry" and string "burger".
 	}
 }
 
@@ -13,8 +13,8 @@ public static String[] getFoodTypes() { // Declares a new static method that ret
 	return foodTypes;	// returns the string array above
 }
 
-public static String[] getFoodsByType(String type) { // Declare a method named getFoodsByType() that accepts a String type parameter named type.
-	String[] foods = new String[3]; // creates a new object type string array that has the length 3 elements and stores into the foods variable type string array to be returned. 
+public static String[] getFoodsByType(String type) { // Declare a method named getFoodsByType() that accepts a String parameter named type.
+	String[] foods = new String[3]; // creates a new object String array that has the length 3 and stores into foods variable type string array. 
 
 	switch(type) { // receives the "dinner" string form the type parameter of the method getFoodsByType.
 	case "breakfast":
@@ -22,15 +22,15 @@ public static String[] getFoodsByType(String type) { // Declare a method named g
 		foods[1] = "cereal";
 		foods[2] = "omelette";
 		break;
-	case "lunch":
+	case "lunch": 
 		foods[0] = "sandwich";
 		foods[1] = "salad";
 		foods[2] = "soup";
 		break;
-	case "dinner": // all foods elements fills the foods string array of this method that has a length of 3 elements.
-		foods[0] = "curry";
-		foods[1] = "stir fry";
-		foods[2] = "burger";
+	case "dinner": // all foods 3 elements fills the foods string array of this method that has a length of 3 elements when this case name matches with type String parameter passed into the it method in this case "dinner".
+		foods[0] = "curry"; // it fills the first element = index [0] of the string array foods.
+		foods[1] = "stir fry";  // it fills the second element = index [1] of the string array foods.
+		foods[2] = "burger";  // it fills the third element = index [2] of the string array foods.
 		break;
 	case "dessert":
 		foods[0] = "cake";
@@ -47,5 +47,5 @@ public static String[] getFoodsByType(String type) { // Declare a method named g
 		break;
 	}
 
-	return foods; // return the String array.
+	return foods; // return the String array foods with it 3 elements String[] foods = {"curry", "stir fry", "burger"}.
 }
