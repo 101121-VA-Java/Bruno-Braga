@@ -11,7 +11,7 @@ public class Driver {
     	
     	Scanner sc = new Scanner(System.in);
    
-        System.out.println("What is your favorite season of the year");
+        System.out.println("What is your favorite season of the year ?");
         String mySc = sc.nextLine();
         Season s = new Summer(); 
         
@@ -23,7 +23,7 @@ public class Driver {
     }
     
     public static void mySeasonTemperature(int temperature) {
-    	System.out.println("Temperature average for you season is " + temperature);
+    	System.out.println("Temperature average for your season is " + temperature);
     	
     }
     
