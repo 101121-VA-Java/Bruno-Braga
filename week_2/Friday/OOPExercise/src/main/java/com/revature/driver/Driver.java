@@ -16,14 +16,13 @@ public class Driver {
         Season s = new Summer(); 
         
         System.out.println("Your favorite season is "+ s.typeOfWeather(mySc));
+        mySeasonTemperature(s.averageTemperature(mySc));
         sc.close();
-//        averageTemperature();
+        
         
     }
     
-    public static void averageTemperature(String temperature) {
-//    	switch(temperature) {
-//    	case "Summer":    	}
+    public static void mySeasonTemperature(int temperature) {
     	System.out.println("Temperature average for you season is " + temperature);
     	
     }

@@ -1,6 +1,6 @@
 package com.revature.models;
 
-import com.revature.interfaces.Trimester;
+import com.revature.interfaces.*;
 
 import java.util.Arrays;
 
@@ -46,6 +46,22 @@ public class Season implements Trimester {
 		this.weather = weather;
 	}
 
-	public void averageTemperature() {
+	public int averageTemperature(String seasonName) {
+		switch (seasonName) {
+		case "Summer":
+			return 75;
+		case "Fall":
+			return 55;
+		case "Winter":
+			return 45;
+		case "Spring":
+			return 65;
+		default:
+			throw new IllegalStateException("Unexpected value: " + Arrays.toString(fourSeasonTemperatures));
+			
+		}
 	}
+	
+	
+	
 }
