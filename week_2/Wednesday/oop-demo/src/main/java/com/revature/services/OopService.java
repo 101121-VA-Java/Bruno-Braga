@@ -29,7 +29,7 @@ public class OopService {
 		Object o = new Object(); // o is a reference to an object/instance of the Object class
 
 		/*
-		 * SYSO - calls u.toString() implicitely - default implementation of toString(),
+		 * SYSO - calls u.toString() implicitly - default implementation of toString(),
 		 * per the Object Class, is the memory address - to return meaning information,
 		 * we have to override the method to be relevant to the fields of that class
 		 * 

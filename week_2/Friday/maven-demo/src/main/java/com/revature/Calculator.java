@@ -30,7 +30,7 @@ public class Calculator {
 	}
 
 	public boolean isPrime(int i) {
-		// Corner cases
+
         if (i <= 1) {
         	return false;
         }
@@ -50,8 +50,6 @@ public class Calculator {
             	return false;
             }
         }    
-        return true;
-  
-        
+        return true; 
     }
 }
