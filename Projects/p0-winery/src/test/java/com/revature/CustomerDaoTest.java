@@ -2,6 +2,8 @@ package com.revature;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
+import org.junit.jupiter.api.*;
+
 import com.revature.models.Customer;
 import com.revature.repositories.CustomerArray;
 import com.revature.repositories.CustomerDao;
@@ -14,7 +16,7 @@ public class CustomerDaoTest {
 	@BeforeEach
 	public void setup() {
 		Customer[] customers = {new Customer(0, "Kevin", "Kev", "KevPass")}; 
-		cd = new CustomerArray();
+		cd = new CustomerArray(); //customer should be a parameter
 	}
 	
 	@Test
