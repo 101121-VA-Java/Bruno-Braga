@@ -1,29 +1,30 @@
 package com.revature.repositories;
 
 import com.revature.models.Employee;
+import com.revature.models.Manager;
 
-public class EmployeePostgres implements EmployeeDao{
+public class ManagerPostgres implements ManagerDAO{
 
 	@Override
-	public Employee[] getAllEmployees() {
+	public Manager[] getAllEmployee() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Employee getEmployeeById(int id) {
+	public Manager getEmployeeById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int addEmployee(Employee e) {
+	public int addEmployee(Manager e) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public boolean editEmployee(Employee e) {
+	public boolean editEmployee(Manager e) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -33,5 +34,7 @@ public class EmployeePostgres implements EmployeeDao{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
 
 }
