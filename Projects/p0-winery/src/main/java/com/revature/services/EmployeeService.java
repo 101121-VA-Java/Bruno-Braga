@@ -1,7 +1,8 @@
 package com.revature.services;
 
+import com.revature.daos.EmployeeDAO;
 import com.revature.models.Employee;
-import com.revature.repositories.EmployeeDao;
+
 
 public class EmployeeService {
 
@@ -14,7 +15,7 @@ public class EmployeeService {
 		return ed.addEmployee(e);
 	}
 
-	public Employee getEmployeeById(int i) {
+	public Employee getEmployeeById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

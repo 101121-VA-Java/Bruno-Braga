@@ -1,11 +1,17 @@
-package com.revature.repositories;
+package com.revature.daos;
+
+import java.util.ArrayList;
+
+import com.revature.models.Customer;
+import com.revature.models.PaymentsHistory;
 
 public interface CustomerDAO {
 
-//	Customer[] getAllCustomers();
-//	Customer getCustomerById(int id);
-//	int addCustomer(Customer c);
-//	boolean editCustomer(Customer C); 
-//	boolean deleteCustomer(int id);
-	
+	public String viewProductDescripton();
+	public String viewIfItemHasOffers();
+	public Double getTotalBalance();
+	public Double makePayments();
+	ArrayList<PaymentsHistory> viewPayments();
+
+	public int addCustomer(Customer c);	
 }

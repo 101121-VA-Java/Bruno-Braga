@@ -1,4 +1,4 @@
-package com.revature.repositories;
+package com.revature.daos;
 
 public interface UserDAO {
 

@@ -1,13 +1,16 @@
-package com.revature.repositories;
+package com.revature.daos;
 
-import java.util.ArrayList;
-
-import com.revature.models.PaymentsHistory;
+import com.revature.models.Employee;
 
 public interface EmployeeDAO {
 
 	int addItemCatalog();
 	int deleteItemCatalog();
 	boolean acceptRejectOffer();
-	ArrayList<PaymentsHistory> viewPayments();
+	Employee[] getAllEmployees(); // returns an array of all of the employees available
+	Employee getEmployeeById(int id);
+	int addEmployee(Employee e); // returns assigned id
+	boolean editEmployee(Employee e); // returns boolean depending on operation success
+	boolean deleteEmployee(int id); // returns boolean depending on operation success
+
 }

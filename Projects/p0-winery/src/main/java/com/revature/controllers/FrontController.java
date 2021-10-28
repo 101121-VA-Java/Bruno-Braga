@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class FrontController {
 	private Scanner sc; 
-	private UserController uc;
+	private EmployeeController uc;
 	
 	public FrontController() {
 		sc = new Scanner(System.in);

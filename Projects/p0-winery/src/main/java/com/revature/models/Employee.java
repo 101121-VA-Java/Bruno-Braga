@@ -1,33 +1,66 @@
 package com.revature.models;
 
-import com.revature.repositories.UserDAO;
+import com.revature.daos.UserDAO;
 
 public class Employee extends User implements UserDAO{
 
-	private int employeeId;
+
+	public int employeeId;
 	private String employeeName;
-	private User username;
-	private User password;
-	private Role roleType; // using an enum to store a specific value
-	private Employee manager;
-	
+	private String username;
+	private String password;
+	public Role role; // using an Enum to store a specific value
+	private double salary;
 	
 
 	
-	
-	/*
-	 * Project0 Design
+	public Employee(int employeeId, String employeeName, String username, String password, Role role, double salary) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.username = username;
+		this.password = password;
+		this.role = role;
+		this.salary = salary;
+	}
 
-- User has {Role, userId, username, password}, register, login, logout
-- Customer (is a User), has {customerId, name, phone, email, address}, viewItem, makeOfferForItem, makePayment, viewPaymentBalance
-- Employee has {employeeId, name, employeeRole}, addItem, removeItem, acceptRejectOffer, viewPayments,
-- Manager (is an Employee) createEmployee, removeEmployee, viewSalesHistory
-- Item {itemId, description, quantity, state?}
-- System updateItemState, calculateWeeklyPayments
-- Page
-- Products(is an Item)
-- Role
-	 */
+	public Employee(int id, String lastname, String firstname, double salary) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
+	public String getEmployeeName() {
+		return employeeName;
+	}
+
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
+
 	
 	
 	

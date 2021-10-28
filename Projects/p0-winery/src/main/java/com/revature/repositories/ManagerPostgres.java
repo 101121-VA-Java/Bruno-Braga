@@ -1,5 +1,6 @@
 package com.revature.repositories;
 
+import com.revature.daos.ManagerDAO;
 import com.revature.models.Employee;
 import com.revature.models.Manager;
 

@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.revature.daos.ManagerDAO;
 import com.revature.models.Manager;
 import com.revature.models.Role;
-import com.revature.repositories.ManagerDAO;
 
 public class ManagerDAOTest {
 

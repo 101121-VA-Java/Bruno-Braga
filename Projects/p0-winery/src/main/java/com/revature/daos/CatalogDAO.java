@@ -1,4 +1,4 @@
-package com.revature.repositories;
+package com.revature.daos;
 
 import java.util.Locale;
 import java.util.Locale.Category;

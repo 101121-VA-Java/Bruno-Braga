@@ -1,5 +1,6 @@
 package com.revature.repositories;
 
+import com.revature.daos.ManagerDAO;
 import com.revature.models.*;
 
 public class ManagerArray implements ManagerDAO{
@@ -61,5 +62,20 @@ public class ManagerArray implements ManagerDAO{
 	public boolean deleteManager(int id) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	@Override
+	public void createEmployee() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void removeEmployee() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public SalesHistoryArray viewSalesHistory() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
