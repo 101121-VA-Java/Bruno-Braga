@@ -23,12 +23,18 @@ public class Driver {
 
 		while (true) {
 
-			System.out.println("***************************-----WINERY----*********************************" + "\n"
-					+ "*****************--We have the best wines that you can find--**************" + "\n"
-					+ "***************************************************************************" + "\n"
-					+ "-Please enter the number next to your option to select an item of the menu-" + "\n" + "1 - LOGIN"
-					+ "\n" + "2 - REGISTER USER" + "\n" + "3 - VIEW WINE CATALOG" + "\n" + "4 - HELP" + "\n"
-					+ "5 - EXIT" + "\n");
+			System.out.println(
+					 "***************************-----WINERY----*********************************"
+			+ "\n" + " "
+			+ "\n" + "*****************--We have the best wines that you can find--**************" 
+			+ "\n" + "***************************************************************************" 
+			+ "\n" + "-Please enter the number next to your option to select an item of the menu-"
+			+ "\n" + "1 - LOGIN"
+			+ "\n" + "2 - REGISTER USER"
+			+ "\n" + "3 - VIEW WINE CATALOG" 
+			+ "\n" + "4 - HELP" 
+			+ "\n" + "5 - EXIT"
+			+ "\n");
 
 			option =scan.nextLine();
 
