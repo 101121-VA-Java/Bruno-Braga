@@ -34,7 +34,7 @@ public class RegisterUser {
 		}
 		System.out.println("Please enter your password: at least 4 char");
 		String password = sc.nextLine();
-		if (password.valueOf(employeeId) < 3) {
+		if (password.trim().length() < 3) {
 			System.out.println("Your password should be at least 4 characters.");
 			return;
 		}
