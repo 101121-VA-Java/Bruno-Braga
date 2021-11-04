@@ -15,10 +15,10 @@ public class WelcomeToWineryFrontController {
 
         while (quit != 4) {
             System.out.println("Please select an option:"
-                    + "/n" + "1 - View Catalog of Wines."
-                    + "/n" + "2 - Login"
-                    + "/n" + "3 - Register"
-                    + "/n" + "4 - Exit"
+                    + "\n" + "1 - View Catalog of Wines."
+                    + "\n" + "2 - Login"
+                    + "\n" + "3 - Register"
+                    + "\n" + "4 - Exit"
             );
             choiceW = scW.nextByte();
 
@@ -30,7 +30,7 @@ public class WelcomeToWineryFrontController {
                     System.out.println("");
                     break;
                 case 3:
-                    RegisterUserController();
+                    new RegisterUserController();
                     break;
                 default:
                     System.out.println("Invalid choice.");

@@ -12,17 +12,17 @@ public class EmployeeController {
     public static void printEmployeeMenu() {
         int quit = -1;
         int input = -1;
-        byte choiceEC = 0;
+        int choiceEC = 0;
 
         Scanner scEC = new Scanner(System.in);
         while (choiceEC != 5) {
             System.out.println("Employee System Options:"
-                    + "/n" + "1 - Add an item into wine catalog."
-                    + "/n" + "2 - Remove an item from wine catalog."
-                    + "/n" + "3 - Accept or reject offers for items."
-                    + "/n" + "4 - View all payments."
-                    + "/n" + "5 - Edit exiting items."
-                    + "/n" + "6 - Go back to the previous menu."
+                    + "\n" + "1 - Add an item into wine catalog."
+                    + "\n" + "2 - Remove an item from wine catalog."
+                    + "\n" + "3 - Accept or reject offers for items."
+                    + "\n" + "4 - View all payments."
+                    + "\n" + "5 - Edit exiting items."
+                    + "\n" + "6 - Go back to the previous menu."
             );
             choiceEC = scEC.nextByte();
             switch (choiceEC) {
@@ -43,11 +43,10 @@ public class EmployeeController {
             }
         }
         System.out.println(" ");
-        input = scW.nextInt();
-        quit =  input;
+        input = scEC.nextInt();
+        quit = input;
 
-        if (choiceEC==5)
-        {
+        if (choiceEC == 5) {
             WelcomeToWineryFrontController.printWelcomeMenu();
         }
     }

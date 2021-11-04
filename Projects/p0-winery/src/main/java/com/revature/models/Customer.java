@@ -1,15 +1,12 @@
 package com.revature.models;
 
-import java.util.Objects;
-
-public class Customer extends User{
+public class Customer implements User{
 
 	
 	private int customerId;
-	Role roleType;
-	private String name;
 	private String username;
 	private String password;
+	Role CUSTOMER;
 	
 	
 	//TODO: add return type

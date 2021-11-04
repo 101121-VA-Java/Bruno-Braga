@@ -1,6 +1,6 @@
 package com.revature.models;
 
-public class Employee extends User {
+public class Employee implements User {
 
 
 	public int employeeId;
