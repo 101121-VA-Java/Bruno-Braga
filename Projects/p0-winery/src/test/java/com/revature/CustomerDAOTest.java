@@ -1,7 +1,5 @@
 package com.revature;
 
-import com.revature.repositories.CustomerDao;
-
 public class CustomerDAOTest {
 
 	private static CustomerDao cd;

@@ -1,67 +1,60 @@
 package com.revature.controllers;
 
+
+import com.revature.exceptions.WineryCatalogDAO;
+
+import javax.xml.catalog.Catalog;
 import java.util.Scanner;
-import com.revature.exceptions.UserNotFoundException;
-import com.revature.models.Employee;
-import com.revature.models.Role;
-import com.revature.services.EmployeeService;
 
 public class EmployeeController {
 
-//	private EmployeeService us = new EmployeeService();
-	public Exception userNotFound = new UserNotFoundException();
 
-	public void searchForEmployee() {
+    public static void printEmployeeMenu() {
+        int quit = -1;
+        int input = -1;
+        byte choiceEC = 0;
 
-	}
+        Scanner scEC = new Scanner(System.in);
+        while (choiceEC != 5) {
+            System.out.println("Employee System Options:"
+                    + "/n" + "1 - Add an item into wine catalog."
+                    + "/n" + "2 - Remove an item from wine catalog."
+                    + "/n" + "3 - Accept or reject offers for items."
+                    + "/n" + "4 - View all payments."
+                    + "/n" + "5 - Edit exiting items."
+                    + "/n" + "6 - Go back to the previous menu."
+            );
+            choiceEC = scEC.nextByte();
+            switch (choiceEC) {
+                case 1:
+                    WineryCatalogDAO.AddItemToCatalog();
+                    break;
+                case 2:
 
-	public static void registerEmployee(Scanner scan) {
-		while(true) {
-			System.out.println("Please enter a username:");
-			int employeeId = scan.nextInt();
-			System.out.println("Please enter a password:");
-			String employeeName = scan.nextLine();
-			System.out.println("Please enter your name: ");
-			String username = scan.nextLine();
-			System.out.println("Please enter your name: ");
-			String password = scan.nextLine();
-			System.out.println("Please choose one of the following employee roles: " + "\n" + "1 -"+ Role.MANAGER + "\n" + "2 -"+ Role.STAFF_MEMBER);
-			// TODO: search to create a menu that choose between enum
+                    break;
+                case 3:
 
-			String whichView = scan.nextLine();
-				switch (whichView) {
-					case "1":
-						Role MANAGER;
-					case "2":
-						Role STAFF_MEMBER;
-					default:
-						System.out.println("Please enter a valid input");
-				}
-			Role chosenRole = Role(MANAGER) ;
-			System.out.println("Please enter the desire salary for this employee: ");
-			double salary = scan.nextDouble();
-	
-			Employee newEmployee = new Employee(employeeId, employeeName, username, password, role, salary);
-	
-			// TODO: check whether an employee created or not (if the method works)
-			us.addEmployee(newEmployee);
-	
-			System.out.println("Employee has been registered");
-		}
+                    break;
+                case 4:
 
-	private static Role Role() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+                    break;
+                default:
+                    System.out.println("Invalid input");
+            }
+        }
+        System.out.println(" ");
+        input = scW.nextInt();
+        quit =  input;
 
-	public void registerEmployee(EmployeeController uc) {
-		// TODO Auto-generated method stub
+        if (choiceEC==5)
+        {
+            WelcomeToWineryFrontController.printWelcomeMenu();
+        }
+    }
 
-	}
-
-	public String nextLine() {
-		// TODO Auto-generated method stub
-		return null;
-
-	}
 }
+
+
+
+
+

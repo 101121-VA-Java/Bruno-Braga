@@ -16,7 +16,14 @@ public class Wine {
 		this.name = name;
 		this.kindOfWine = kindOfWine;
 	}
-	@Override
+
+    public static void catalogOfWines() {
+
+		System.out.println(getWines(brand, name, kindOfWine));
+    }
+
+
+    @Override
 	protected Object clone() throws CloneNotSupportedException {
 		// TODO Auto-generated method stub
 		return super.clone();

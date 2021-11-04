@@ -1,8 +1,6 @@
 package com.revature.models;
 
-import com.revature.daos.UserDAO;
-
-public class Employee extends User implements UserDAO{
+public class Employee extends User {
 
 
 	public int employeeId;
