@@ -3,7 +3,7 @@ package com.revature.controllers;
 
 import com.revature.exceptions.WineryCatalogDAO;
 
-import javax.xml.catalog.Catalog;
+
 import java.util.Scanner;
 
 public class EmployeeController {
