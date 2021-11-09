@@ -4,16 +4,19 @@ import java.util.Scanner;
 
 public class CustomerController {
 
-    //view catalog
-    //select wine
-    //buy wine
-    private static final Scanner sc = new Scanner(System.in);
 
     public static void customerMainMenu() {
-        int choice = -1; // set out to off reach value so the while loop begins
-        printCustomersMenu(); // prints menu
+        int choice = -1; // set out to off reach value so the while loop begins// prints menu
+        Scanner sc = new Scanner(System.in);
         choice = sc.nextInt();
-        while(choice != 4){
+        while(choice != 5){
+
+                System.out.println("Customer Dashboard:"
+                        + "\n" + "1: View Our Catalog of Wines"
+                        + "\n" + "2: View My Wines "
+                        + "\n" + "3: View My Remaining Payment "
+                        + "\n" + "4 - Go back to the previews menu");
+
             switch(choice){
                 case 1:
                     // view Catalog of Wines
@@ -32,7 +35,7 @@ public class CustomerController {
                     break;
                 case 4:
                     // Log Out
-                    WelcomeToWineryFrontController frontController = new WelcomeToWineryFrontController();
+
 
                     break;
                 default:
@@ -42,11 +45,5 @@ public class CustomerController {
         }
     }
 
-    public static void printCustomersMenu() {
-        System.out.println("Customer Dashboard:"
-                + "\n" + "1: View Our Catalog of Wines"
-                + "\n" + "2: View My Wines "
-                + "\n" + "3: View My Remaining Payment "
-                + "\n" + "4: Log Out");
-    };
+
 }

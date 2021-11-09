@@ -1,21 +1,15 @@
 package com.revature.controllers;
 
 
-import com.revature.exceptions.WineryCatalogDAO;
-
-
 import java.util.Scanner;
 
-public class EmployeeController {
+public class EmployeeController{
 
+    public static void employeeMenu() {
 
-    public static void printEmployeeMenu() {
-        int quit = -1;
-        int input = -1;
-        int choiceEC = 0;
 
         Scanner scEC = new Scanner(System.in);
-        while (choiceEC != 5) {
+        while (true) {
             System.out.println("Employee System Options:"
                     + "\n" + "1 - Add an item into wine catalog."
                     + "\n" + "2 - Remove an item from wine catalog."
@@ -23,32 +17,40 @@ public class EmployeeController {
                     + "\n" + "4 - View all payments."
                     + "\n" + "5 - Edit exiting items."
                     + "\n" + "6 - Go back to the previous menu."
+                    + "\n" + "7 - Exit the system."
             );
-            choiceEC = scEC.nextByte();
-            switch (choiceEC) {
+            int choice = scEC.nextInt();
+            String wineName;
+            String wineType;
+            int wineId;
+            switch (choice) {
                 case 1:
-                    WineryCatalogDAO.AddItemToCatalog();
-                    break;
+                    System.out.println("Enter the name of the wine you would like to add.");
+                    wineName = scEC.nextLine();
+                    System.out.println("Enter the type of the wine you would like to add.");
+                    wineType = scEC.nextLine();
+                    System.out.println("Enter the id of the wine you would like to add.");
+                    wineId = scEC.nextInt();
+                break;
                 case 2:
-
-                    break;
+                    System.out.println("Enter the Item Id that you which to remove.");
+                    wineId = scEC.nextInt();
+                break;
                 case 3:
+                    System.out.println("Enter the name of the wine you would like to accept or reject.");
 
-                    break;
-                case 4:
 
-                    break;
-                default:
-                    System.out.println("Invalid input");
+
+
+
+
+
+
+
+
             }
         }
-        System.out.println(" ");
-        input = scEC.nextInt();
-        quit = input;
 
-        if (choiceEC == 5) {
-            WelcomeToWineryFrontController.printWelcomeMenu();
-        }
     }
 
 }

@@ -1,7 +1,6 @@
 package com.revature.exceptions;
 
-public class UserAlreadyExistsException extends Exception {
+public class LoginException extends Exception{
 
     private static final long serialVersionUID = 1L;
-
 }

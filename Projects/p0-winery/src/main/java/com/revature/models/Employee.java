@@ -1,52 +1,56 @@
 package com.revature.models;
 
-public class Employee implements User {
+public class Employee {
 
-
-	public int employeeId;
-	private String employeeName;
-	private String username;
+	private int employeeID;
+	private String firstName;
+	private String lastName;
+	private String email;
 	private String password;
-	public Role role; // using an Enum to store a specific value
-	private double salary;
-	
 
-	
-	public Employee(int employeeId, String employeeName, String username, String password, Role role, double salary) {
+	public Employee(int id, String username, String first_name, String last_name, String email, String password, int i) {
 		super();
-		this.employeeId = employeeId;
-		this.employeeName = employeeName;
-		this.username = username;
+	}
+
+	public Employee(int id, String firstName, String lastName, String email, String password, int roleID) {
+		super();
+		this.id = employeeID;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
 		this.password = password;
-		this.role = role;
-		this.salary = salary;
 	}
 
-	public Employee(int id, String lastname, String firstname, double salary) {
-		// TODO Auto-generated constructor stub
+	public int getEmployeeID() {
+		return employeeID;
 	}
 
-	public Double getSalary() {
-		return salary;
-	}
-	public void setSalary(double salary) {
-		this.salary = salary;
+	public void setEmployeeID(int employeeID) {
+		this.employeeID = employeeID;
 	}
 
-	public String getEmployeeName() {
-		return employeeName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
@@ -56,11 +60,55 @@ public class Employee implements User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 
-	
-	
-	
-	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + employeeID;
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (employeeID != other.employeeID)
+			return false;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		return true;
+	}
+
+
+	public roleId getRoleId() {
+		return roleId;
+	}
 }

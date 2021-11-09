@@ -1,22 +1,31 @@
 package com.revature.services;
 
-import com.revature.daos.EmployeeDAO;
+import com.revature.exceptions.UserAlreadyExistsException;
 import com.revature.models.Employee;
+import com.revature.repositories.EmployeePostgres;
+import com.revature.dao.GenericDao;
 
+import java.util.List;
 
 public class EmployeeService {
+    private static GenericDao<Employee> es = new EmployeePostgres();
 
-	private EmployeeDAO ed;
-	
-	public int addEmployee(Employee e) {
-		/*
-		 * add business logic here to manipulate e before storage
-		 */
-		return ed.addEmployee(e);
-	}
+    public GenericDao<Employee> addEmployee(Employee e) throws UserAlreadyExistsException {
+        Employee newEmployee = this.getEmployeeByEmail(e.getEmail());
+        if(newEmployee != null) {
+            throw new UserAlreadyExistsException();
+        }
+        return es.add(e);
+    }
 
-	public Employee getEmployeeById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Employee getEmployeeByEmail(String email) {
+        List<Employee> employees = ed.getAll();
+        for(Employee e : employees) {
+            if(e.getEmail().equals(email)) {
+                return e;
+            }
+        }
+        return null;
+    }
+
 }
