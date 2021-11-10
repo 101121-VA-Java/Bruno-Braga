@@ -1,9 +1,10 @@
 package com.revature.services;
 
+import com.revature.dao.GenericDao;
 import com.revature.exceptions.UserAlreadyExistsException;
 import com.revature.models.Customer;
+import com.revature.models.Wine;
 import com.revature.repositories.CustomerPostgres;
-import com.revature.dao.GenericDao;
 
 import java.util.List;
 
@@ -36,6 +37,13 @@ public class CustomerService {
             if(cust.isLoggedIn() == true) {
                 cust.setLoggedIn(false);
             }
+        }
+    }
+    public void viewWineCatalog(){
+        System.out.println("Viewing Catalog");
+        List<Wine> wines = cd.getAll();
+        for(Wine w : wines) {
+            System.out.println(w);
         }
     }
 }

@@ -1,8 +1,9 @@
 package com.revature.controllers;
-
+import com.revature.services.CustomerService;
 import java.util.Scanner;
 
 public class CustomerController {
+    CustomerServices cs = new CustomerServices();
 
 
     public static void customerMainMenu() {
@@ -19,6 +20,8 @@ public class CustomerController {
 
             switch(choice){
                 case 1:
+                    System.out.println("View Our Catalog of Wines");
+                    sc.nextLine();
                     // view Catalog of Wines
 
 
@@ -34,7 +37,7 @@ public class CustomerController {
 
                     break;
                 case 4:
-                    // Log Out
+                    // back to previous menu
 
 
                     break;

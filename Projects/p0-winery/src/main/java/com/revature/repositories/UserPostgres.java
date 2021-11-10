@@ -27,16 +27,17 @@ public class UserPostgres implements GenericDao<User> {
                     ResultSet rs = ps.executeQuery();
 
                     if(rs.next()) {
-                        id = rs.getInt("id");
+                        int userId = rs.getInt("user_id");
                         String username = rs.getString("username");
                         String first_name = rs.getString("first_name");
                         String last_name = rs.getString("last_name");
                         String email = rs.getString("email");
                         String password = rs.getString("password");
                         int roleId = rs.getInt("roleId");
+                        boolean loggedIn = rs.getBoolean("loggedIn");
 
 
-                        user = new User(userID, TypeID,
+                        user = new User(
             }
         }catch (SQLException | IOException e) {
             e.printStackTrace();
