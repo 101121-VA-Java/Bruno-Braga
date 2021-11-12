@@ -3,42 +3,50 @@ import com.revature.services.CustomerService;
 import java.util.Scanner;
 
 public class CustomerController {
-    CustomerServices cs = new CustomerServices();
+    static Scanner sc = new Scanner(System.in);
+//    public static wineService ws = new WineService();
+    private static CustomerService cs = new CustomerService();
+    private static WelcomeToWineryFrontController wtc = new WelcomeToWineryFrontController();
 
 
-    public static void customerMainMenu() {
-        int choice = -1; // set out to off reach value so the while loop begins// prints menu
+    public static void customerMenu() {
         Scanner sc = new Scanner(System.in);
-        choice = sc.nextInt();
-        while(choice != 5){
+
+        boolean run = true;
+        while(run){
 
                 System.out.println("Customer Dashboard:"
-                        + "\n" + "1: View Our Catalog of Wines"
-                        + "\n" + "2: View My Wines "
-                        + "\n" + "3: View My Remaining Payment "
-                        + "\n" + "4 - Go back to the previews menu");
-
+                        + "\n" + "1 - View Our Catalog of Wines"
+                        + "\n" + "2 - View My Wine Cellar"
+                        + "\n" + "3 - View My Orders"
+                        + "\n" + "4 - Logout");
+            int choice = sc.nextInt();
             switch(choice){
                 case 1:
                     System.out.println("View Our Catalog of Wines");
-                    sc.nextLine();
+                    run = false;
+//                    winesCatalog(sc);
                     // view Catalog of Wines
-
-
                     break;
                 case 2:
                     // View My Wines
-
-
+                    System.out.println("View My Wine Cellar");
+                    run = false;
+//                    viewMyWineBag(sc);
                     break;
                 case 3:
-                    // View Remaining Payment
-
-
+                    // View My Orders
+//                    ordersView(sc);
+                    run = false;
                     break;
                 case 4:
-                    // back to previous menu
+                    // logout
+                    System.out.println("Logging out...");
+                    cs.logout();
+                    System.out.println("You have been logged out.");
+                    wtc.welcomeToWineryMenu();
 
+                    run = false;
 
                     break;
                 default:
