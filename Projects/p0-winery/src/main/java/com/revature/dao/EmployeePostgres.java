@@ -31,7 +31,7 @@ public class EmployeePostgres implements GenericDao<Employee> {
                 String e_password = rs.getString("e_password");
 
 
-                emp = new Employee(id, username, first_name, last_name, email, password, roleId);
+                emp = new Employee(id, username, first_name, last_name, email, password, );
             }
         } catch (SQLException | IOException e) {
             e.printStackTrace();
