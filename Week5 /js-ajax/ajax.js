@@ -44,7 +44,9 @@ function getData() {
 function populateData(response) {
     console.log(response.name);
     document.getElementById('data').innerHTML =
-        `<img src="${response.sprites.front_default}">`;
+        `<img src="${response.sprites.front_default}">` +
+        `<h1>${response.name}</h1>`;
+
 
     // Using DOM manipulation, display information about pokemon to the webpage
 }
