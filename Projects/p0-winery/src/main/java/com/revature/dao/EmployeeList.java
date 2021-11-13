@@ -47,7 +47,7 @@ public class EmployeeList implements GenericDao<Employee> {
     }
 
     @Override
-    public Employee remove(Employee t) {
+    public Employee delete(Employee t) {
         employees.remove(t);
         return t;
     }

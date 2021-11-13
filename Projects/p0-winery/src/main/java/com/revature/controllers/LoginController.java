@@ -1,53 +1,79 @@
 package com.revature.controllers;
 
+import java.util.Scanner;
+
+import com.revature.exception.LoginException;
+
+import com.revature.services.CustomerService;
+import com.revature.services.EmployeeService;
+
 public class LoginController {
+	private static CustomerService cs = new CustomerService();
+	private static EmployeeService es = new EmployeeService();
 
-//    private CustomerService cs = new CustomerService();
-//    private EmployeeService es = new EmployeeService();
-//    private static RegisterUserController ruc = new RegisterUserController();
-//
-//    public void userLogin(Scanner sc){
-//        System.out.println("Enter 1 to login as a customer, 2 to login as an employee");
-//        int userChoice = sc.nextInt();
-//        System.out.println("Please enter your email");
-//        String email = sc.next();
-//        //
-//        System.out.println("Please enter your password");
-//        String password = sc.next();
-//        //
-//
-//        if(userChoice == 1){
-//            try {
-//                cs.login(email, password);
-//                System.out.println("You have successfully logged in");
-//               cs.customerMenu(sc);
-//            } catch(LoginException e){
-//                System.out.println("Invalid email or password, please enter 1 to try again, or 2 to create an account");
-//                int userChoice = sc.nextInt();
-//                if(userChoice == 1){
-//                    userLogin(sc);
-//
-//                } else {
-//                    ruc.registerUserMenu(sc);
-//                }
-//            }
-//        }
-//        if (userChoice == 2){
-//            try {
-//                es.login(email, password);
-//                es.employeeMenu(sc);
-//            } catch(LoginException e){
-//                System.out.println("Invalid email or password, please enter 1 to try again, or 2 to create an account");
-//                int userChoice = sc.nextInt();
-//                if(userChoice == 1){
-//                    userLogin(sc);
-//                } else {
-//                    ruc.registerUserMenu(sc);
-//                }
-//            }
-//        }
-//
-//
-//    }
+	static Scanner sc = new Scanner(System.in);
+	protected static int choose;
 
+	public static void userLogin() {
+		boolean run = true;
+
+		System.out.println("Select 1: for customer");
+		System.out.println("Select 2: for employee:");
+		String us = sc.nextLine();
+
+		System.out.println("Please Enter Your Username!");
+		String username = sc.nextLine();
+
+		System.out.println("Please Enter Your Password:");
+		String password = sc.nextLine();
+
+		if (us.equals("1")) {
+			try {
+				cs.login(username, password);
+				System.out.println("Loading...........!");
+				System.out.println("Log In Successful!");
+				CustomerMenu.cusMenu();
+
+			} catch (LoginException e) {
+				System.out.println("Invalid credentials");
+				System.out.println("Please Try Again!");
+				System.out.println("Press 1: Login Press 2: Register");
+				String choose = sc.nextLine();
+				switch (choose) {
+				case "1":
+					System.out.println("Returning to Login Menu");
+					userLogin();
+					break;
+
+				case "2":
+					RegistrationController.registrationMenu();
+					break;
+
+				default:
+					System.out.println("Invaild input");
+					run = false;
+
+				}
+			}
+		}
+		if (us.equals("2")) {
+			try {
+				es.login(username, password);
+				EmployeeMenu.EmpMenu();
+			} catch (LoginException e) {
+				System.out.println();
+				System.out.println("Invalid credentials");
+				System.out.println("Please Try Again!");
+				System.out.println("Press 1: Login Press 2: Register");
+				String choose = sc.nextLine();
+				System.out.println();
+
+				if (choose.equals("1")) {
+					userLogin();
+				} else {
+					RegistrationController.registrationMenu();
+				}
+			}
+		}
+	}
 }

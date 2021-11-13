@@ -2,39 +2,97 @@ package com.revature.controllers;
 
 import java.util.Scanner;
 
+import com.revature.exception.UsernameAlreadyExistsException;
+import com.revature.models.Customer;
+import com.revature.models.Employee;
+
+import com.revature.services.CustomerService;
+import com.revature.services.EmployeeService;
+
 public class RegistrationController {
-//    public CustomerRegisterController cr = new CustomerRegisterController();
-//    public EmployeeRegisterController er = new EmployeeRegisterController();
+
+	static Scanner sc = new Scanner(System.in);
+
+	private static CustomerService cs = new CustomerService();
+	private static EmployeeService es = new EmployeeService();
+
+	public static void registrationMenu() {
+
+		System.out.println("Customer 1 or Employee 2!");
+		String check = sc.nextLine();
+
+		switch (check) {
+		case "1":
+
+			System.out.println("Enter your name:");
+			String name = sc.nextLine();
+			if (name.trim().length() < 3) {
+				System.out.println("Your name should be great than 3 characters.");
+				return;
+			}
+			System.out.println("Enter your username:");
+			String username = sc.nextLine();
+			if (username.trim().length() < 3) {
+				System.out.println("Your username should be great than 3 characters.");
+				return;
+			}
+			System.out.println("Enter your password:");
+			String password = sc.nextLine();
+			if (password.trim().length() < 3) {
+				System.out.println("Your password should be great than 3 characters.");
+				return;
+			}
+
+			Customer newCustomer = new Customer(username, password);
+
+			try {
+				Customer newCustomer1 = cs.addCustomer(newCustomer);
+				System.out.println("Welcome " + newCustomer1.getName() + "!");
+
+			} catch (UsernameAlreadyExistsException e) {
+				System.out.println("Username already exists");
+				registrationMenu();
+			}
+			System.out.println("Registration in progress...\n");
+			System.out.println("Registration Complete");
+
+			WelcomeToWineryFrontController.welcomeToWineryMenu();
 
 
-    public static void regitrationMenu(Scanner sc){
-        boolean run = true;
-        while (run) {
-            System.out.println("Choose between the following options: "
-            +"\n "+"1 - For Customer Registration"
-            +"\n "+"2 - For Employee Registration"
-            +"\n "+"3 - To Go back");
+		case "2":
 
-            int choice = sc.nextInt();
-            switch (choice) {
-                case 1:
-                    System.out.println("Customer Registration");
-                    CustomerRegisterController.customerRegistrationMenu(sc);
-                    run = false;
-                    break;
-                case 2:
-                    System.out.println("Employee Registration");
-                    EmployeeRegisterController.employeeRegistrationMenu(sc);
-                    run = false;
-                    break;
-                case 3:
-                    System.out.println("Going back to the main menu");
-                    run = false;
-                    break;
-                default:
-                    System.out.println("Invalid input");
-            }
-        }
-    }
+			System.out.println("Enter your name:");
+			String eName = sc.nextLine();
+			if (eName.trim().length() < 3) {
+				System.out.println("Your name should be great than 3 characters.");
+				return;
+			}
+			System.out.println("Enter your username:");
+			String eUsername = sc.nextLine();
+			if (eUsername.trim().length() < 3) {
+				System.out.println("Your username should be great than 3 characters.");
+				return;
+			}
+			System.out.println("Enter your password:");
+			String ePassword = sc.nextLine();
+			if (ePassword.trim().length() < 3) {
+				System.out.println("Your password should be great than 3 characters.");
+				return;
+			}
+			Employee newEmployee = new Employee(eName, eUsername, ePassword);
 
+			try {
+				newEmployee = es.addEmployee(newEmployee);
+				System.out.println("Welcome " + newEmployee.getName());
+
+			} catch (UsernameAlreadyExistsException e) {
+				System.out.println("Username is already in use.\nPlease try again.");
+				registrationMenu();
+				break;
+			}
+			System.out.println("Registration Successful: \n");
+			EmployeeMenu.EmpMenu();
+
+		}
+	}
 }

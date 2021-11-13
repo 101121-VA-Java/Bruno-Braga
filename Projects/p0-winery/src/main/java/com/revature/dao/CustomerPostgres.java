@@ -1,116 +1,148 @@
 package com.revature.dao;
 
-import com.revature.models.Customer;
-import com.revature.utilities.ConnectionUtil;
-
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.dao.CustomerDao;
+import com.revature.models.Customer;
+import com.revature.models.Employee;
+
+import com.revature.utilities.ConnectionUtil;
+
 public class CustomerPostgres implements CustomerDao {
 
-    @Override
-    public Customer getByID(int customerID) {
-        String sql = "select * from winery.customers where c_id = ? ";
-        Customer cust = null;
+	@Override
+	public Customer add(Customer customer) {
 
-        try(Connection con = ConnectionUtil.getConnectionFromFile()){
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, customerID);
-            ResultSet rs = ps.executeQuery();
+		String sql = "insert into customers (c_name, c_username, c_password) " + "values (?, ?, ?);";
 
-            if(rs.next()) {
-                int c_id = rs.getInt("c_id");
-                String c_first_name = rs.getString("c_first_name");
-                String c_last_name = rs.getString("c_first_name");
-                String c_email = rs.getString("c_email");
-                String c_password = rs.getString("c_password");
-                boolean loggedIn = rs.getBoolean("c_logged_in");
+		try (Connection con = ConnectionUtil.getConnectionFromFile()) {
+			PreparedStatement ps = con.prepareStatement(sql);
 
+			ps.setString(1, customer.getName());
+			ps.setString(2, customer.getUsername());
+			ps.setString(3, customer.getPassword());
 
-                cust = new Customer(c_id, c_first_name, c_last_name, c_email, c_password, loggedIn);
-            }
-        }
-        catch (SQLException | IOException e) {
-            e.printStackTrace();
-        }
-        return cust;
-    }
+			ps.executeUpdate();
 
-    @Override
-    public List<Customer> getAll(){
-        String sql = "select * from winery.customers;";
-        List <Customer> customers = new ArrayList<>();
+		} catch (SQLException | IOException e1) {
 
-        try (Connection con = ConnectionUtil.getConnectionFromFile()){
-            Statement s = con.createStatement();
-            ResultSet rs = s.executeQuery(sql);
+			e1.printStackTrace();
+		}
 
-            while(rs.next()) {
-                int customerID = rs.getInt("c_id");
-                String firstName = rs.getString("c_first_name");
-                String lastName = rs.getString("c_last_name");
-                String email = rs.getString("c_email");
-                String password = rs.getString("c_password");
-                boolean loggedIn = rs.getBoolean("c_logged_in");
+		return customer;
+	}
 
-                Customer newCstmr = new Customer(customerID, firstName, lastName, email, password, loggedIn);
-                customers.add(newCstmr);
-            }
-        }
-        catch (SQLException | IOException e) {
-            e.printStackTrace();
-        }
-        return customers;
-    }
+	public Customer getById(int id) {
+		String sql = "select * from customers where c_id = ? ";
+		Customer cust = null;
 
-    @Override
-    public Customer add(Customer customer) {
-        // int genID = -1;
-        String sql = "insert into winery.customers (c_first_name, c_last_name, c_email, c_password) values (?, ?, ?, ?);";
+		try (Connection con = ConnectionUtil.getConnectionFromFile()) {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
 
-        try (Connection con = ConnectionUtil.getConnectionFromFile()){
-            PreparedStatement ps = con.prepareStatement(sql);
+			if (rs.next()) {
+				int c_id = rs.getInt("c_id");
+				String c_name = rs.getString("c_name");
+				String c_username = rs.getString("c_username");
+				String c_password = rs.getString("c_password");
+				Boolean logged = rs.getBoolean("c_logged");
 
-
-            ps.setString(1, customer.getFirstName());
-            ps.setString(2, customer.getLastName());
-            ps.setString(3, customer.getEmail());
-            ps.setString(4, customer.getPassword());
-            ps.setInt(5, customer.getCustomerID());
-
-            ResultSet rs = ps.executeQuery();
-            ps.executeUpdate();
-
-			if(rs.next()) {
-                int genID = rs.getInt("e_id");
+				cust = new Customer(c_id, c_name, c_username, c_password, logged);
 			}
-        }
-        catch (SQLException | IOException e) {
-            e.printStackTrace();
-        }
-        return customer;
-    }
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		}
+		return cust;
+	}
 
-    public boolean update(Customer customer) {
-        String sql = "update winery.customers set c_first_name = ?, c_last_name = ?, c_email = ?, c_password = ?, "c_logged" = ? where c_id = ?;";
+	@Override
+	public List<Customer> getAll() {
+		String sql = "select * from customers;";
+		List<Customer> customers = new ArrayList<>();
 
+		try (Connection con = ConnectionUtil.getConnectionFromFile()) {
+			Statement s = con.createStatement();
+			ResultSet rs = s.executeQuery(sql);
 
-        try (Connection con = ConnectionUtil.getConnectionFromFile()){
-            PreparedStatement ps = con.prepareStatement(sql);
+			while (rs.next()) {
+				int id = rs.getInt("c_id");
+				String name = rs.getString("c_name");
+				String username = rs.getString("c_username");
+				String password = rs.getString("c_password");
+				Boolean logged = rs.getBoolean("c_logged");
 
-            ps.setString(1, customer.getFirstName());
-            ps.setString(2, customer.getLastName());
-            ps.setString(3, customer.getEmail());
-            ps.setString(4, customer.getPassword());
-            ps.setBoolean(5, customer.isLogged());
-            ps.setInt(6, customer.getCustomerID());
+				Customer newCust = new Customer(id, name, username, password, logged);
+				customers.add(newCust);
+			}
+		} catch (IOException | SQLException e1) {
 
-            ps.executeUpdate();
-        }
-        catch (SQLException | IOException e) {
-            e.printStackTrace();
-        }
+			e1.printStackTrace();
+		}
+		return customers;
+	}
+
+	@Override
+	public boolean update(Customer customer) {
+		String sql = "update customers set c_name = ?, c_username = ?, c_password = ?, c_logged = ? "
+				+ "where c_id = ?;";
+
+		int rowsChanged = -1;
+
+		try (Connection con = ConnectionUtil.getConnectionFromFile()) {
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, customer.getName());
+			ps.setString(2, customer.getUsername());
+			ps.setString(3, customer.getPassword());
+			ps.setBoolean(4, customer.isLogged());
+			ps.setInt(5, customer.getId());
+
+			rowsChanged = ps.executeUpdate();
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		}
+		if (rowsChanged > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public Customer delete(Customer customer) {
+		String sql = "delete from customers where e_id = ?;";
+		int rowsChanged = -1;
+		int id = customer.getId();
+		try (Connection con = ConnectionUtil.getConnectionFromFile()) {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+
+			rowsChanged = ps.executeUpdate();
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		}
+		if (rowsChanged > 0) {
+			return null;
+		} else {
+			return customer;
+		}
+
+	}
+
+	@Override
+	public Customer getByID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }

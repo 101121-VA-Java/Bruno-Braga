@@ -7,5 +7,5 @@ public interface GenericDao<T> {
     T getByID(int id);
     List<T> getAll();
     boolean update(T t);
-    T remove(T t);
+    T delete (T t);
 }

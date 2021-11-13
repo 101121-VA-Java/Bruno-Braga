@@ -1,44 +1,56 @@
 package com.revature.models;
 
+import java.util.Objects;
+
 public class Customer {
 
-	private int customerID;
-	private String firstName;
-	private String lastName;
-	private String email;
+	private int id;
+	private String name;
+	private String username;
 	private String password;
 	private boolean logged;
 
 	public Customer() {
 		super();
+
 	}
 
-	public Customer(String firstName, String lastName, String email, String password) {
+	public Customer(int id, String name, String username, String password, boolean logged) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-	}
-
-	public Customer(int customerID, String firstName, String lastName, String email, String password) {
-		super();
-		this.customerID = customerID;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-	}
-
-	public Customer(int customerId, String firstName, String lastName, String email, String password,
-					boolean logged) {
-		super();
-		this.customerID = customerId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
+		this.id = id;
+		this.name = name;
+		this.username = username;
 		this.password = password;
 		this.logged = logged;
+	}
+
+	public Customer(int id, String name, String username, String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.username = username;
+		this.password = password;
+	}
+
+	public Customer(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
+
+	public Customer(String name, String username, String password, boolean logged) {
+		super();
+		this.name = name;
+		this.username = username;
+		this.password = password;
+		this.logged = logged;
+	}
+
+	public Customer(String name, String username, String password) {
+		super();
+		this.name = name;
+		this.username = username;
+		this.password = password;
 	}
 
 	public boolean isLogged() {
@@ -49,36 +61,28 @@ public class Customer {
 		this.logged = logged;
 	}
 
-	public int getCustomerID() {
-		return customerID;
+	public int getId() {
+		return id;
 	}
 
-	public void setCustomerID(int customerId) {
-		this.customerID = customerId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -90,15 +94,13 @@ public class Customer {
 	}
 
 	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password + "]";
+	}
+
+	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result +;
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		return result;
+		return Objects.hash(id, name, password, username);
 	}
 
 	@Override
@@ -110,30 +112,8 @@ public class Customer {
 		if (getClass() != obj.getClass())
 			return false;
 		Customer other = (Customer) obj;
-		if (customerID != other.customerID)
-			return false;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (firstName == null) {
-			if (other.firstName != null)
-				return false;
-		} else if (!firstName.equals(other.firstName))
-			return false;
-		if (lastName == null) {
-			if (other.lastName != null)
-				return false;
-		} else if (!lastName.equals(other.lastName))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		return true;
+		return id == other.id && Objects.equals(name, other.name) && Objects.equals(password, other.password)
+				&& Objects.equals(username, other.username);
 	}
-
 
 }
