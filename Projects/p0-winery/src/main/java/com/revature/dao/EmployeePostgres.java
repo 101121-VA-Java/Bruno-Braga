@@ -24,12 +24,10 @@ public class EmployeePostgres implements EmployeeDao {
 			ResultSet rs = s.executeQuery(sql);
 
 			while (rs.next()) {
-				int id = rs.getInt("e_id");
-				String name = rs.getString("e_name");
 				String username = rs.getString("e_username");
 				String password = rs.getString("e_password");
 
-				Employee newEmp = new Employee(id, name, username, password);
+				Employee newEmp = new Employee(username, password);
 				employees.add(newEmp);
 			}
 		} catch (IOException | SQLException e1) {
@@ -120,6 +118,30 @@ public class EmployeePostgres implements EmployeeDao {
 	public Employee getByID(int id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+	@Override
+	public String deleteEmployee(int idNewEmp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public String updateEmployee(Employee newEmp2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public int addEmployee(Employee newEmp) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 

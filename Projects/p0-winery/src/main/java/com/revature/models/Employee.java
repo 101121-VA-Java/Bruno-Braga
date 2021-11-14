@@ -8,7 +8,7 @@ public class Employee {
 	private String username;
 	private String password;
 
-	public Employee() {
+	public Employee(int id2, String username2, String password2) {
 		super();
 
 	}

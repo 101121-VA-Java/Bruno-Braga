@@ -58,7 +58,7 @@ public class LoginController {
 		}
 		if (us.equals("2")) {
 			try {
-				es.login(username, password);
+				EmployeeService.login(username, password);
 				EmployeeMenu.EmpMenu();
 			} catch (LoginException e) {
 				System.out.println();

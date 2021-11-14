@@ -14,7 +14,7 @@ public class EmployeeService {
 
 	public Employee addEmployee(Employee employee) throws UsernameAlreadyExistsException {
 
-		Employee newHire = this.getEmployeeByUsername(employee.getUsername());
+		Employee newHire = EmployeeService.getEmployeeByUsername(employee.getUsername());
 		if (newHire != null) {
 			throw new UsernameAlreadyExistsException();
 		}
@@ -22,7 +22,7 @@ public class EmployeeService {
 		return ed.add(employee);
 	}
 
-	private Employee getEmployeeByUsername(String username) {
+	private static Employee getEmployeeByUsername(String username) {
 		List<Employee> employees = ed.getAll();
 		for (Employee e : employees) {
 			if (e.getUsername().equals(username)) {
@@ -33,8 +33,8 @@ public class EmployeeService {
 		return null;
 	}
 
-	public Employee login(String username, String password) throws LoginException {
-		Employee emp = this.getEmployeeByUsername(username);
+	public static Employee login(String username, String password) throws LoginException {
+		Employee emp = getEmployeeByUsername(username);
 		if (emp == null || !emp.getPassword().equals(password)) {
 			throw new LoginException();
 		}

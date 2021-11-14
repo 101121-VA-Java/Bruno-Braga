@@ -8,12 +8,8 @@ import com.revature.controllers.EmployeeMenu;
 import com.revature.dao.CustomerDao;
 import com.revature.dao.CustomerPostgres;
 import com.revature.dao.ItemDao;
-import com.revature.dao.ItemList;
-import com.revature.exception.UserAlreadyExistsException;
 import com.revature.models.Customer;
-import com.revature.models.Employee;
 import com.revature.models.Item;
-import com.revature.dao.CustomerDao;
 import com.revature.dao.ItemPostgres;
 
 public class ItemService {

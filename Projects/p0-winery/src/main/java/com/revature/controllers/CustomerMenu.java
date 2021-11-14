@@ -13,8 +13,11 @@ public class CustomerMenu {
 		boolean Successful = true;
 
 		do {
-			System.out.println("Customer Menu" + "\n" + "1 - View Our Catalog of Wines" + "\n"
-                    + "2 - View My Wine Cellar" + "\n" + "3 - View My Orders" + "\n" + "4 - Logout");
+			System.out.println("Customer Menu" 
+		+ "\n" + "1 - View Our Catalog of Wines" 
+					+ "\n" + "2 - View My Wine Cellar" 
+		+ "\n" + "3 - View My Orders" 
+					+ "\n" + "4 - Logout");
 			choice = sc.nextInt();
 
 			switch (choice) {

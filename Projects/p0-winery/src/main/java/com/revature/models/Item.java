@@ -10,7 +10,7 @@ public class Item {
 	private int cusId;
 	private String status;
 
-	public Item() {
+	public Item(String string, String string2, double d, int i) {
 		super();
 
 	}

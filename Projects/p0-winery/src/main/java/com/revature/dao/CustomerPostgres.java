@@ -9,19 +9,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.dao.CustomerDao;
 import com.revature.models.Customer;
-import com.revature.models.Employee;
+
 
 import com.revature.utilities.ConnectionUtil;
 
 public class CustomerPostgres implements CustomerDao {
-
+	
 	@Override
 	public Customer add(Customer customer) {
 
 		String sql = "insert into customers (c_name, c_username, c_password) " + "values (?, ?, ?);";
-
+		
 		try (Connection con = ConnectionUtil.getConnectionFromFile()) {
 			PreparedStatement ps = con.prepareStatement(sql);
 
@@ -39,7 +38,8 @@ public class CustomerPostgres implements CustomerDao {
 		return customer;
 	}
 
-	public Customer getById(int id) {
+	@Override
+	public Customer getByID(int id) {
 		String sql = "select * from customers where c_id = ? ";
 		Customer cust = null;
 
@@ -53,7 +53,7 @@ public class CustomerPostgres implements CustomerDao {
 				String c_name = rs.getString("c_name");
 				String c_username = rs.getString("c_username");
 				String c_password = rs.getString("c_password");
-				Boolean logged = rs.getBoolean("c_logged");
+				boolean logged = rs.getBoolean("c_logged");
 
 				cust = new Customer(c_id, c_name, c_username, c_password, logged);
 			}
@@ -77,7 +77,7 @@ public class CustomerPostgres implements CustomerDao {
 				String name = rs.getString("c_name");
 				String username = rs.getString("c_username");
 				String password = rs.getString("c_password");
-				Boolean logged = rs.getBoolean("c_logged");
+				boolean logged = rs.getBoolean("c_logged");
 
 				Customer newCust = new Customer(id, name, username, password, logged);
 				customers.add(newCust);
@@ -137,12 +137,6 @@ public class CustomerPostgres implements CustomerDao {
 
 	}
 
-	@Override
-	public Customer getByID(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	
 
 }
